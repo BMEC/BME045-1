@@ -91,10 +91,80 @@
 9. Click `Get Still` to confirm that the camera is working.
 10. You can play with the settings. Some settings may cause your app to crash - restart and try again. 
 
-#Arduino Cloud
+#Arduino Cloud Setup
 1. Sign up for [Arduino Cloud](https://cloud.arduino.cc/).
 2. Skip out of the automated setup.
-3. Go to `Devices` on the left navigation menu.
+3. Click on `Devices` in the left navigation menu.
 4. Click on `ADD DEVICE`.
 5. Click on `Compatible device`.
-6. Select `ESP32`
+6. Select `ESP32` and `ESP32 Wrover Module`.
+7. Name your device `smart_meter_device` and click the check mark ✔️.
+8. Download and save your `Device ID` and `Secret Key`.
+9. Click on `Things` in the left navigation menu.
+10. Click `Create Thing` ➕.
+11. Rename thing to `smart_meter_thing`.
+12. Click `Add` Coud variable:
+    1. Name: `flashMeterAmp`.
+    2. Type: `Electrical Current`.
+    3. Variable Permission: `Read Only`.
+    4. Variable Update Policy: `On Change`.
+
+#Arduino Cloud connection
+1. In the Arduino IDE, click on the `Library Manager` in the left navigation panel and search for and install `ArduinoIoTCloud` with all dependancies.
+2. Make a new sketch (`File/New Sketch`) and save it on your desktop with the name `smart_meter`. This will create a new folder on your desktop called `smart_meter` and inside that will be a file `smart_meter.ino`.
+3. Make sure you have file extensions visible in explorer/finder.
+4. Create a copy of `smart_meter.ino` and rename it to `thingProperties.h`. Make SURE the extension has changed. This file will not be visible in the Arduino IDE.
+5. Replace the contents of each file with the files below:
+
+   `smart_meter.ino`
+   
+    ```c++
+    #include "thingProperties.h"
+    
+    void setup() {
+    
+      Serial.begin(9600);
+      delay(1500); 
+    
+      initProperties();
+    
+      ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+      
+      setDebugMessageLevel(2);
+      ArduinoCloud.printDebugInfo();
+    }
+    
+    int i = 0;
+    
+    void loop() {
+      ArduinoCloud.update();
+      delay(1000);
+      flashMeterAmp = (i==0 ? i++: i--);
+    }
+    ```
+ 
+    `thingProperties.h`
+   
+    ```c++
+    #include <ArduinoIoTCloud.h>
+    #include <Arduino_ConnectionHandler.h>
+    
+    const char DEVICE_LOGIN_NAME[]  = "*********";    // Copy from downloaded PDF
+    const char DEVICE_KEY[]  = "****************";    // Copy from downloaded PDF
+    
+    const char SSID[]               = "*********";    // Network SSID (name)
+    const char PASS[]               = "*********";    // Network password (use for WPA, or use as key for WEP)
+   
+    CloudElectricCurrent flashMeterAmp;
+    
+    void initProperties(){
+    
+      ArduinoCloud.setBoardId(DEVICE_LOGIN_NAME);
+      ArduinoCloud.setSecretDeviceKey(DEVICE_KEY);
+      ArduinoCloud.addProperty(flashMeterAmp, READ, ON_CHANGE, NULL);
+    
+    }
+    
+    WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
+   ```
+7. 
