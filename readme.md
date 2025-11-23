@@ -167,4 +167,13 @@
     
     WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
    ```
-7. 
+
+# Dashboard creations
+1. Click on `Dashboards` in the left navigation menu.
+2. Click on `Create dashboard` ➕.
+3. Rename the dashboard to `Smart Meter Dashboard`.
+4. Click `Edit` ✏️ at the top right.
+5. Click `Add`.
+6. Select `Chart`.
+7. Click `Link Variable`, select `flashMeterAmp` and click `LINK VARIABLE` and then `DONE`.
+8. You should see the current bounce between 0 and 1 🚀.
