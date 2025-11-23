@@ -6,10 +6,12 @@
 5. Plug your board into a USB port on your compupter. 
 6. Select `ESP32 Family Device` from the `Select Board` drop down at the top of the IDE OR Plug your device out and in to find the port if the name doesn't show and select `ESP32 Dev Module`.
 7. Click on `Tools/Port` and make sure a COM port is selected with the ESP32 Family Device.
-8. Click on `Tools/Board` and select `ESP32 Wrover Module` - avoid changing any other board settings at this time.
-9. Click on the `Upload` arrow at the top of the IDE to flash the empty script onto the baord.
-10. Power cycle the board - the display should be blank.
-11. Replace the code with the following code and flash again:
+8. Click on `Tools/Board` and select `ESP32 Wrover Module`
+9. Make sure `Tools/Events Run On` and `Tools/Arduino Runs on` are set to run on `Core 0`
+10. Avoid changing any other board settings at this time - if you have issues ask the host to double check your board config.
+11. Click on the `Upload` arrow at the top of the IDE to flash the empty script onto the baord.
+12. Power cycle the board - the display should be blank.
+13. Replace the code with the following code and flash again:
     ```c++
     void setup() {
       Serial.begin(9600);
@@ -20,7 +22,7 @@
       delay(500);
     }
     ```
-12. Click on the `Serial Monitor` 🔎 icon at the top right of the IDE and make sure you see `hello world` printed out.
+14. Click on the `Serial Monitor` 🔎 icon at the top right of the IDE and make sure you see `hello world` printed out.
 
 
 # Testing the camera
@@ -91,3 +93,8 @@
 
 #Arduino Cloud
 1. Sign up for [Arduino Cloud](https://cloud.arduino.cc/).
+2. Skip out of the automated setup.
+3. Go to `Devices` on the left navigation menu.
+4. Click on `ADD DEVICE`.
+5. Click on `Compatible device`.
+6. Select `ESP32`
