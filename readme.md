@@ -25,7 +25,7 @@
 
 # Testing the camera
 1. Open example `File/Examples/ESP32/Camera/CameraWebServer`.
-2. In `board_config.h` make sure all camera models are commented out.
+2. In `CameraWebServer.ino` comment out `#include "board_config.h"`.
 3. Paste the following after the #includes at the top of `CameraWebServer.ino`:
     ```c++
     // Pins as per the TTGO-Camera pinout diagram.
