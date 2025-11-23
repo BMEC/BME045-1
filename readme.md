@@ -26,7 +26,8 @@
 # Testing the camera
 1. Open example `File/Examples/ESP32/Camera/CameraWebServer`.
 2. In `CameraWebServer.ino` comment out `#include "board_config.h"`.
-3. Paste the following after the #includes at the top of `CameraWebServer.ino`:
+3. In `app_httpd.cpp` comment out `#include "board_config.h"`.
+4. Paste the following after the #includes at the top of `CameraWebServer.ino`:
     If your device has a mic.
     ```c++
     // Pins as per the TTGO-Camera pinout diagram.
@@ -72,9 +73,9 @@
     
     #define LED_GPIO_NUM -1
     ```
-4. Fill in your Wifi `ssid` and `password`.
-5. Click on the `Upload` arrow at the top of the IDE to flash the script onto the baord.
-6. Open the serial monitor:
+5. Fill in your Wifi `ssid` and `password`.
+6. Click on the `Upload` arrow at the top of the IDE to flash the script onto the baord.
+7. Open the serial monitor:
     1. Change the `Baud Rate` (top right of the serial monitor panel) to `115200`.
     2. Click the `Clear Output` button (just above the `Baud Rate` drop down.
     3. Press the `RST` button on your board (bottom left).
@@ -84,9 +85,9 @@
         WiFi connected
         Camera Ready! Use 'http://xxx.xxx.xxx.xxx' to connect
         ```
-7. Copy the URL from the serial monitor into your browser.
-8. Click `Get Still` to confirm that the camera is working.
-9. You can play with the settings. Some settings may cause your app to crash - restart and try again. 
+8. Copy the URL from the serial monitor into your browser.
+9. Click `Get Still` to confirm that the camera is working.
+10. You can play with the settings. Some settings may cause your app to crash - restart and try again. 
 
 #Arduino Cloud
 1. Sign up for [Arduino Cloud](https://cloud.arduino.cc/).
