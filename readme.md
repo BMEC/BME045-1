@@ -32,7 +32,7 @@
 4. Paste the following after the #includes at the top of `CameraWebServer.ino`:
     If your device has a mic.
     ```c++
-    // Pins as per the TTGO-Camera pinout diagram.
+    // Pins as per the board silk - note the diagram is incorrect.
     #define PWDN_GPIO_NUM  -1
     #define RESET_GPIO_NUM -1
     #define XCLK_GPIO_NUM  4
@@ -55,6 +55,7 @@
     ```
     If your device has no mic.
     ```c++
+    // Pins as per the diagram.
     #define PWDN_GPIO_NUM  26
     #define RESET_GPIO_NUM -1
     #define XCLK_GPIO_NUM 32
