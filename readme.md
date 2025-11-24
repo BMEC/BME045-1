@@ -1,3 +1,10 @@
+## **SMART METER BUILD**
+
+<img height=240 src="https://github.com/user-attachments/assets/de712843-abbb-4e2e-bf2c-f76fa25a0c4f">
+<img height=240 src="https://github.com/user-attachments/assets/730861e9-e012-4259-8188-7f16cc2914c0">
+<img height=240 src="https://github.com/user-attachments/assets/091583ac-8a65-4370-a330-142ee6848c31">
+
+
 # Setup
 1. Install the [Arduino IDE](https://www.arduino.cc/en/software/).
 2. Open the Arduino IDE.
@@ -177,7 +184,7 @@
     WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
    ```
 
-# Dashboard creations
+# Dashboard creation
 1. Click on `Dashboards` in the left navigation menu.
 2. Click on `Create dashboard` ➕.
 3. Rename the dashboard to `Smart Meter Dashboard`.
@@ -187,7 +194,7 @@
 7. Click `Link Variable`, select `flashMeterAmp` and click `LINK VARIABLE` and then `DONE`.
 8. You should see the current bounce between 0 and 1 🚀.
 
-# Meter firmware
+# Get your meter working!
 1. Replace the code in `smart_meter.ino` with the code below.
 2. Comment out the appropriate camera pins.
 3. Have fun adding to your dashboard and testing your code!
