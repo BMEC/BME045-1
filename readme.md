@@ -105,8 +105,13 @@
 10. Click `Create Thing` ➕.
 11. Rename thing to `smart_meter_thing`.
 12. Click `Add` Coud variable:
-    1. Name: `flashMeterAmp`.
-    2. Type: `Electrical Current`.
+    1. Name: `powerW`.
+    2. Type: `Power`.
+    3. Variable Permission: `Read Only`.
+    4. Variable Update Policy: `On Change`.
+13. Click `Add` Coud variable:
+    1. Name: `consumptionWh`.
+    2. Type: `Floating Point Number`.
     3. Variable Permission: `Read Only`.
     4. Variable Update Policy: `On Change`.
 
@@ -156,13 +161,15 @@
     const char SSID[]               = "*********";    // Network SSID (name)
     const char PASS[]               = "*********";    // Network password (use for WPA, or use as key for WEP)
    
-    CloudElectricCurrent flashMeterAmp;
+    float consumptionWh;
+    CloudPower powerW;
     
     void initProperties(){
     
       ArduinoCloud.setBoardId(DEVICE_LOGIN_NAME);
       ArduinoCloud.setSecretDeviceKey(DEVICE_KEY);
-      ArduinoCloud.addProperty(flashMeterAmp, READ, ON_CHANGE, NULL);
+      ArduinoCloud.addProperty(consumptionWh, READ, ON_CHANGE, NULL);
+      ArduinoCloud.addProperty(powerW, READ, ON_CHANGE, NULL);
     
     }
     
