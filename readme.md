@@ -195,6 +195,7 @@
     1. Showing the data on the display.
     2. Implementing flash memory so your data is saved if you loose power.
     3. Auto reset the consumption on the 1st of the month - or add monthly consumption.
+    4. Improve power consumption to keep your meter running all month!
 ```c++
 // Copyright (c) 2025 BMEC Technologies. All rights reserved.
 
