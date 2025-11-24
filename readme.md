@@ -153,7 +153,7 @@
     void loop() {
       ArduinoCloud.update();
       delay(1000);
-      flashMeterAmp = (i==0 ? i++: i--);
+      powerW = (i==0 ? i++: i--);
     }
     ```
  
@@ -191,7 +191,7 @@
 4. Click `Edit` ✏️ at the top right.
 5. Click `Add`.
 6. Select `Chart`.
-7. Click `Link Variable`, select `flashMeterAmp` and click `LINK VARIABLE` and then `DONE`.
+7. Click `Link Variable`, select `powerW` and click `LINK VARIABLE` and then `DONE`.
 8. You should see the current bounce between 0 and 1 🚀.
 
 # Get your meter working!
