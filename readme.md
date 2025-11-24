@@ -54,7 +54,7 @@
     #define LED_GPIO_NUM -1
     ```
     If your device has no mic.
-    ```
+    ```c++
     #define PWDN_GPIO_NUM  26
     #define RESET_GPIO_NUM -1
     #define XCLK_GPIO_NUM 32
